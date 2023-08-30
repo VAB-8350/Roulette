@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './RouletteApp.css'
-import backgroundImg from '../public/background.png'
+import backgroundImg from './assets/background.png'
 
 const options = [
   {
