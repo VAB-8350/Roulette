@@ -1,0 +1,100 @@
+.carousel-container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+img {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  object-fit: cover;
+  filter: drop-shadow(0 0 10px rgba(215, 160, 223, 0.63));
+  z-index: 100;
+}
+
+#roulette {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 300px;
+  overflow: hidden;
+  border: 10px solid #ffff59;
+  margin-bottom: 60px;
+  z-index: 200;
+}
+
+button {
+  z-index: 200;
+  width: fit-content;
+  padding: 10px 20px;
+  justify-self: center;
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
+}
+
+button:hover {
+  opacity: .5;
+}
+
+#roulette .spin-content {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+#roulette .static-elements {
+  position: relative;
+  display: inline-block;
+  border-radius: 100%;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 5px rgba(44, 44, 44, 0.466);
+  z-index: 200;
+}
+
+#roulette .static-elements::after {
+  content: '';
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 100%;
+  background: linear-gradient(145deg, #FFFF6A, #CFCF48);
+}
+
+#roulette .roulette-section {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform-origin: 0 100%;
+  z-index: 20;
+}
+
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  clip-path: circle(0% at 50% 100%);
+  transition: 1.5s;
+}
+
+.background.show {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  clip-path: circle(100% at 50% 50%);
+}
