@@ -71,7 +71,6 @@ function RouletteApp() {
 
     setTimeout(() => {
       const index = Math.trunc(degrees / rotateAngle)
-      console.log(index)
 
       const info = JSON.stringify(options[index])
 
@@ -89,8 +88,10 @@ function RouletteApp() {
 
   return (
     <main className='carousel-container'>
-
-      <img src={backgroundImg} alt='fondo de confeti' />
+      {
+        selected === null &&
+        <img src={backgroundImg} alt='fondo de confeti' />
+      }
 
       <div className={`background ${selected !== null ? 'show' : ''}`} style={{backgroundColor: `${selected?.code}`}}>
         <p>
