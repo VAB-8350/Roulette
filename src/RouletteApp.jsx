@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './RouletteApp.css'
+import backgroundImg from '../public/background.png'
 
 const options = [
   {
@@ -89,7 +90,7 @@ function RouletteApp() {
   return (
     <main className='carousel-container'>
 
-      <img src="../public/background.png" alt="" />
+      <img src={backgroundImg} alt='fondo de confeti' />
 
       <div className={`background ${selected !== null ? 'show' : ''}`} style={{backgroundColor: `${selected?.code}`}}>
         <p>
