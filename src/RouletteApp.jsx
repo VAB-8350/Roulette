@@ -16,7 +16,7 @@ const minDegrees = 10
 export default function RouletteApp() {
 
   // Local States
-  const [selected, setSelected] = useState(options[0])
+  const [selected, setSelected] = useState(null)
   const [loading, setLoading]   = useState(false)
 
   // Refs
