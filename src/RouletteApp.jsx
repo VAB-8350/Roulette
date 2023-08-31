@@ -72,7 +72,13 @@ export default function RouletteApp() {
   }
 
   function getImageUrl(name) {
-    return new URL(name, import.meta.url).href
+    const mode = import.meta.env.MODE
+    // if (mode === 'development') {
+      return new URL(name, import.meta.url).href
+    // }
+    // else if (mode === 'production') {
+    //   return new URL(name, import.meta.url).href
+    // }
   }
 
   return (
