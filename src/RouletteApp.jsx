@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import './RouletteApp.css'
+
 import backgroundImg from './assets/background.png'
+import btnImg from './assets/BOTON.png'
 
 const options = [
   {
@@ -41,6 +43,7 @@ function RouletteApp() {
 
   // Local States
   const [selected, setSelected] = useState(null)
+  const [loading, setLoading]   = useState(false)
 
   // Refs
   const roulette = useRef(null)
@@ -54,6 +57,7 @@ function RouletteApp() {
 
   // Methods
   const spin = () => {
+    setLoading(true)
     const spins = getRandomNumber(minSpin ,maxSpin)
     const degrees = getRandomNumber(minDegrees ,maxDegrees)
 
@@ -61,6 +65,17 @@ function RouletteApp() {
     const spin = fullSpins + degrees
 
     if (roulette.current) {
+      const allRoulette = document.getElementById('roulette')
+      const selector = document.getElementById('selector')
+
+
+      allRoulette.style.transition = '.4s'
+      allRoulette.style.transform = 'scale(1.05)'
+      selector.style.transform = 'rotate(15deg)'
+
+      setTimeout(() => allRoulette.style.transform = 'scale(1)', 300)
+      setTimeout(() => selector.style.transform = 'rotate(0deg)', (spins - 1) * 1000)
+
       roulette.current.style.transform = `rotate(-${spin}deg)`
       roulette.current.style.transition = `${spins}s ease`
     }
@@ -73,6 +88,7 @@ function RouletteApp() {
       // window.localStorage.setItem('Rho-Roulete', info)
 
       setSelected(options[index])
+      setLoading(false)
     }, (spins + 1) * 1000)
   }
 
@@ -90,15 +106,18 @@ function RouletteApp() {
       }
 
       <div className={`background ${selected !== null ? 'show' : ''}`} style={{backgroundColor: `${selected?.code}`}}>
-        <p>
-        </p>
+        <h1>Este será tu color!! 🥳</h1>
+        <p>Deberás llevar una bebida y prenda de ropa con él.</p>
+        <p>Te dejamos algunas opciones para que te inspires...</p>
       </div>
 
       {
         selected === null &&
           <>
             <section id='roulette'>
-              <span className='static-elements'/>
+              <span className='static-elements'>
+                <span id='selector' />
+              </span>
 
               <div className='spin-content' ref={roulette}>
                 {
@@ -118,8 +137,8 @@ function RouletteApp() {
 
             </section>
 
-            <button onClick={spin}>
-              Girar
+            <button onClick={spin} disabled={selected || loading} >
+              <img src={btnImg} alt='girar ruleta' />
             </button>
           </>
       }

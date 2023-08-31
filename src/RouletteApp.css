@@ -5,13 +5,13 @@
   place-content: center;
 }
 
-img {
+.carousel-container > img {
   position: fixed;
   left: 0;
   top: 0;
   width: 100vw;
   object-fit: cover;
-  filter: drop-shadow(0 0 10px rgba(215, 160, 223, 0.63));
+  filter: drop-shadow(0 0 7px rgba(215, 160, 223, 0.63));
   z-index: 100;
 }
 
@@ -19,9 +19,6 @@ img {
   position: relative;
   width: 300px;
   height: 300px;
-  border-radius: 300px;
-  overflow: hidden;
-  border: 10px solid #ffff59;
   margin-bottom: 60px;
   z-index: 200;
 }
@@ -29,15 +26,36 @@ img {
 button {
   z-index: 200;
   width: fit-content;
-  padding: 10px 20px;
   justify-self: center;
   border-radius: 10px;
   border: none;
+  padding: 0;
+  background-color: transparent;
   font-size: 20px;
+  height: 60px;
+  transition: .3s;
+}
+
+button img {
+  width: 100%;
+  height: 100%;
 }
 
 button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: .3s;
+}
+
+button:active {
   opacity: .5;
+  cursor: pointer;
+  transform: scale(.95);
+  transition: 0s;
+}
+
+button:disabled {
+  opacity: .3;
 }
 
 #roulette .spin-content {
@@ -45,6 +63,8 @@ button:hover {
   inset: 0;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  border-radius: 300px;
   z-index: 100;
 }
 
@@ -55,19 +75,28 @@ button:hover {
   width: 100%;
   height: 100%;
   box-shadow: inset 0 0 5px rgba(44, 44, 44, 0.466);
+  background-image: url('./assets/circulo.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   z-index: 200;
 }
 
-#roulette .static-elements::after {
+#roulette .static-elements #selector {
   content: '';
-  display: inline-block;
-  width: 50px;
-  height: 50px;
   position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 100%;
-  background: linear-gradient(145deg, #FFFF6A, #CFCF48);
+  top: -30px;
+  left: calc(50% - 40px);
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  filter: drop-shadow(0 0 5px rgba(19, 19, 19, 0.63));
+  background-image: url('./assets/pin.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform-origin: 50% 30%;
+  transition: .5s;
 }
 
 #roulette .roulette-section {
@@ -82,12 +111,14 @@ button:hover {
 
 
 .background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
   position: absolute;
   top: 0;
   left: 0;
   display: inline-block;
-  width: 100%;
-  height: 100%;
   clip-path: circle(0% at 50% 100%);
   transition: 1.5s;
 }
@@ -97,4 +128,16 @@ button:hover {
   width: 100vw;
   height: 100vh;
   clip-path: circle(100% at 50% 50%);
+}
+
+.background h1 {
+  font-family: 'Poppins Bold';
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.background p {
+  font-size: 1.4rem;
+  text-align: center;
+  font-family: 'Poppins';
 }
