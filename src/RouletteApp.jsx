@@ -7,28 +7,34 @@ import btnImg from './assets/BOTON.png'
 const options = [
   {
     color: 'Azul',
-    code: '#00007b',
-  },
-  {
-    color: 'Amarillo/Dorado',
-    code: '#b60000',
-  },
-  {
-    color: 'Verde',
-    code: '#010101',
+    code: '#0036ff',
   },
   {
     color: 'Rojo',
-    code: '#01ca01',
+    code: '#b60000',
   },
   {
     color: 'Negro',
-    code: '#ff8a00',
+    code: '#010101',
+  },
+  {
+    color: 'Verde',
+    code: '#01ca01',
   },
   {
     color: 'Naranja',
+    code: '#ff8a00',
+  },
+  {
+    color: 'Amarillo',
     code: '#f0dd5a',
   }
+]
+
+const darkList = [
+  'Azul',
+  'Rojo',
+  'Negro',
 ]
 
 const rotateAngle = 360 / options.length
@@ -105,10 +111,31 @@ function RouletteApp() {
         <img src={backgroundImg} alt='fondo de confeti' />
       }
 
-      <div className={`background ${selected !== null ? 'show' : ''}`} style={{backgroundColor: `${selected?.code}`}}>
-        <h1>Este será tu color!! 🥳</h1>
-        <p>Deberás llevar una bebida y prenda de ropa con él.</p>
-        <p>Te dejamos algunas opciones para que te inspires...</p>
+      <div className={`background ${selected !== null ? 'show' : ''}`} style={{backgroundColor: `${selected?.code}`, color: `${darkList.includes(selected?.color) ? 'white' : 'black'}`}}>
+
+        <div className="info">
+          <h1>Este será tu color!! 🥳</h1>
+          <p>Deberás llevar una bebida y prenda de ropa con él.</p>
+          <p>Te dejamos algunas opciones para que te inspires...</p>
+        </div>
+
+        <div className='grid-img'>
+          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
+
+          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
+
+          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
+
+          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
+
+          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
+
+          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
+
+          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
+
+          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
+        </div>
       </div>
 
       {
