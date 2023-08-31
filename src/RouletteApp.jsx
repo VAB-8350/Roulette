@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import './RouletteApp.css'
 
 import {options, darkList} from './data.json'
-import confeti from './assets/confeti.png'
 import btnImg from './assets/BOTON.png'
 import background from './assets/background.jpg'
 
@@ -17,7 +16,7 @@ const minDegrees = 10
 export default function RouletteApp() {
 
   // Local States
-  const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState(options[0])
   const [loading, setLoading]   = useState(false)
 
   // Refs
@@ -45,7 +44,7 @@ export default function RouletteApp() {
 
 
       allRoulette.style.transition = '.4s'
-      allRoulette.style.transform = 'scale(1.05)'
+      allRoulette.style.transform = 'scale(.9)'
       selector.style.transform = 'rotate(15deg)'
 
       setTimeout(() => allRoulette.style.transform = 'scale(1)', 300)
@@ -79,11 +78,6 @@ export default function RouletteApp() {
     <main className='carousel-container'>
       <img src={background} alt='background' className='background-img' />
 
-      {
-        selected === null && false &&
-        <img src={confeti} alt='fondo de confeti' className='confeti' />
-      }
-
       <div className={`background ${selected !== null ? 'show' : ''}`} style={{backgroundColor: `${selected?.code}`, color: `${darkList.includes(selected?.color) ? 'white' : 'black'}`}}>
 
         <div className="info">
@@ -111,7 +105,7 @@ export default function RouletteApp() {
       {
         selected === null &&
           <>
-            <h1 className='rulete-title'>Es mi cumpleaños que seas muy feliz!!</h1>
+            <h1 className='rulete-title'>The last hangover!!</h1>
             <section id='roulette'>
               <span className='static-elements'>
                 <span id='selector' />
