@@ -5,31 +5,27 @@ import backgroundImg from './assets/background.png'
 const options = [
   {
     color: 'Azul',
-    code: 'blue',
+    code: '#00007b',
   },
   {
     color: 'Amarillo/Dorado',
-    code: 'yellow',
+    code: '#b60000',
   },
   {
     color: 'Verde',
-    code: 'green',
+    code: '#010101',
   },
   {
     color: 'Rojo',
-    code: 'red',
+    code: '#01ca01',
   },
   {
     color: 'Negro',
-    code: 'black',
+    code: '#ff8a00',
   },
   {
     color: 'Naranja',
-    code: 'orange',
-  },
-  {
-    color: 'Blanco',
-    code: 'salmon',
+    code: '#f0dd5a',
   }
 ]
 
