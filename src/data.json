@@ -1,0 +1,141 @@
+{
+  "options": [
+    {
+      "color": "Naranja",
+      "code": "#ff8a00",
+      "images": [
+        {
+          "link": "./assets/bebidas/Naranja/gancia-spritz-6x7501-b16b001af46596f92015329779295687-640-01-59f7a01135b94f345416513850750071-640-0 copi.png",
+          "name": "Gancia"
+        },
+        {
+          "link": "./assets/bebidas/Naranja/New_Dr.Lemon-_Naranja.png",
+          "name": "Dr. Lemon"
+        },
+        {
+          "link": "./assets/bebidas/Naranja/pngwing.com (20).png",
+          "name": "Whisky"
+        },
+        {
+          "link": "./assets/bebidas/Naranja/pngwing.com (25).png",
+          "name": "Aperol"
+        }
+      ]
+    },
+    {
+      "color": "Negro",
+      "code": "#010101",
+      "images": [
+        {
+          "link": "./assets/bebidas/Negro/1811-80e72e48445151ebf716638747825890-1024-1024.png",
+          "name": "Birra Negra"
+        },
+        {
+          "link": "./assets/bebidas/Negro/7798119220299_02.png",
+          "name": "Speed"
+        },
+        {
+          "link": "./assets/bebidas/Negro/pngwing.com (20).png",
+          "name": "Vino"
+        },
+        {
+          "link": "./assets/bebidas/Negro/pngwing.com (21).png",
+          "name": "Fernet"
+        }
+      ]
+    },
+    {
+      "color": "Verde",
+      "code": "#01ca01",
+      "images": [
+        {
+          "link": "./assets/bebidas/Verde/535c7b1c94c90ebe7df862a02852c13d.png",
+          "name": "Dr. Lemon"
+        },
+        {
+          "link": "./assets/bebidas/Verde/americano-gancia-removebg-preview__06470_std.png",
+          "name": "Gancia"
+        },
+        {
+          "link": "./assets/bebidas/Verde/pngwing.com (20).png",
+          "name": "Heineken"
+        },
+        {
+          "link": "./assets/bebidas/Verde/thumb_58528_default_big copia.png",
+          "name": "Llave"
+        }
+      ]
+    },
+    {
+      "color": "Rojo",
+      "code": "#b60000",
+      "images": [
+        {
+          "link": "./assets/bebidas/Rojo/0-1-1.webp",
+          "name": "Dr. Lemon"
+        },
+        {
+          "link": "./assets/bebidas/Rojo/7-2_Budweiser-Aluminio.png",
+          "name": "Birra roja"
+        },
+        {
+          "link": "./assets/bebidas/Rojo/pngwing.com (18).png",
+          "name": "Campari"
+        },
+        {
+          "link": "./assets/bebidas/Rojo/pngwing.com (22).png",
+          "name": "Smirnoff"
+        }
+      ]
+    },
+    {
+      "color": "Amarillo",
+      "code": "#f0dd5a",
+      "images": [
+        {
+          "link": "./assets/bebidas/Dorado/1007432.png",
+          "name": "Champagne"
+        },
+        {
+          "link": "./assets/bebidas/Dorado/legui-licor-fino-750-mlbyb1-528207a107ba855bfc15888828590836-1024-1024.png",
+          "name": "Legui"
+        },
+        {
+          "link": "./assets/bebidas/Dorado/pngwing.com (19).png",
+          "name": "Birra Rubia"
+        },
+        {
+          "link": "./assets/bebidas/Dorado/pngwing.com (20).png",
+          "name": "Vino Blanco"
+        }
+      ]
+    },
+    {
+      "color": "Azul",
+      "code": "#0036ff",
+      "images": [
+        {
+          "link": "./assets/bebidas/Azul/blue_hawaian-320x320.png",
+          "name": "Blue Hawaian"
+        },
+        {
+          "link": "./assets/bebidas/Azul/frizze-bluebyb1-2915d89011993194ad15891576343598-480-0.png",
+          "name": "Frizze"
+        },
+        {
+          "link": "./assets/bebidas/Azul/jw-blue-label-transparente1-d945520fc4585a4d9d16474368101234-1024-1024.png",
+          "name": "Blue Label XD"
+        },
+        {
+          "link": "./assets/bebidas/Azul/pngwing.com (23).png",
+          "name": "Skyy"
+        }
+      ]
+    }
+  ],
+  "darkList": [
+    "Azul",
+    "Rojo",
+    "Negro"
+  ]
+}

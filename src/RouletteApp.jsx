@@ -1,41 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import './RouletteApp.css'
 
-import backgroundImg from './assets/background.png'
+import {options, darkList} from './data.json'
+import confeti from './assets/confeti.png'
 import btnImg from './assets/BOTON.png'
-
-const options = [
-  {
-    color: 'Azul',
-    code: '#0036ff',
-  },
-  {
-    color: 'Rojo',
-    code: '#b60000',
-  },
-  {
-    color: 'Negro',
-    code: '#010101',
-  },
-  {
-    color: 'Verde',
-    code: '#01ca01',
-  },
-  {
-    color: 'Naranja',
-    code: '#ff8a00',
-  },
-  {
-    color: 'Amarillo',
-    code: '#f0dd5a',
-  }
-]
-
-const darkList = [
-  'Azul',
-  'Rojo',
-  'Negro',
-]
+import background from './assets/background.jpg'
 
 const rotateAngle = 360 / options.length
 const deformAngle = 90 - rotateAngle
@@ -45,7 +14,7 @@ const minSpin = 2
 const maxDegrees = 360
 const minDegrees = 10
 
-function RouletteApp() {
+export default function RouletteApp() {
 
   // Local States
   const [selected, setSelected] = useState(null)
@@ -88,9 +57,7 @@ function RouletteApp() {
 
     setTimeout(() => {
       const index = Math.trunc(degrees / rotateAngle)
-
       const info = JSON.stringify(options[index])
-
       // window.localStorage.setItem('Rho-Roulete', info)
 
       setSelected(options[index])
@@ -104,11 +71,17 @@ function RouletteApp() {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
+  function getImageUrl(name) {
+    return new URL(name, import.meta.url).href
+  }
+
   return (
     <main className='carousel-container'>
+      <img src={background} alt='background' className='background-img' />
+
       {
-        selected === null &&
-        <img src={backgroundImg} alt='fondo de confeti' />
+        selected === null && false &&
+        <img src={confeti} alt='fondo de confeti' className='confeti' />
       }
 
       <div className={`background ${selected !== null ? 'show' : ''}`} style={{backgroundColor: `${selected?.code}`, color: `${darkList.includes(selected?.color) ? 'white' : 'black'}`}}>
@@ -120,27 +93,25 @@ function RouletteApp() {
         </div>
 
         <div className='grid-img'>
-          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
-
-          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
-
-          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
-
-          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
-
-          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
-
-          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
-
-          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
-
-          <img style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}} src='https://tienda.cucinaparadiso.com/product_images/y/872/americano-gancia-removebg-preview__06470_std.png' alt='imagen de producto' />
+          {
+            selected?.images?.map((image, index) => (
+              <article key={index}>
+                <img
+                  style={{filter: selected?.color === 'Negro' ? 'drop-shadow(0 0 50px rgba(252, 252, 252, 0.534))' : ''}}
+                  src={image.link ? getImageUrl(image.link) : 'https://toppng.com/uploads/preview/botellas-de-vidrio-png-botella-espumoso-1156316655987rpl2mgzi.png'}
+                  alt='imagen de producto'
+                />
+                <span>{image.name}</span>
+              </article>
+            ))
+          }
         </div>
       </div>
 
       {
         selected === null &&
           <>
+            <h1 className='rulete-title'>Es mi cumpleaños que seas muy feliz!!</h1>
             <section id='roulette'>
               <span className='static-elements'>
                 <span id='selector' />
@@ -172,5 +143,3 @@ function RouletteApp() {
     </main>
   )
 }
-
-export default RouletteApp
