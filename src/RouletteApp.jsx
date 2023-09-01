@@ -57,7 +57,7 @@ export default function RouletteApp() {
     setTimeout(() => {
       const index = Math.trunc(degrees / rotateAngle)
       const info = JSON.stringify(options[index])
-      // window.localStorage.setItem('Rho-Roulete', info)
+      window.localStorage.setItem('Rho-Roulete', info)
 
       setSelected(options[index])
       setLoading(false)
